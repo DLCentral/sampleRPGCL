@@ -1,0 +1,20 @@
+      /if defined(op_srch_pr)
+        Dcl-Pr op_srch;
+      /endif
+
+      /if defined(op_srch_pi)
+        Dcl-Pi op_srch;
+      /endif
+
+        op_code char(1);
+        op_name char(20);
+
+      /if defined(op_srch_pr)    
+        End-Pr;
+        /undefine op_srch_pr
+      /endif
+
+      /if defined(op_srch_pi)    
+        End-Pi;
+        /undefine op_srch_pi
+      /endif

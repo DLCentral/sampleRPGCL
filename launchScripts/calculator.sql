@@ -1,0 +1,51 @@
+INSERT INTO DLANZ1.OPERATIONS (OP_CODE, OP_NAME)
+VALUES  ('+', 'Addition'),
+        ('-', 'Subtraction'),
+        ('*', 'Multiplication'),
+        ('/', 'Division');
+
+INSERT INTO DLANZ1.OPERATIONS (OP_CODE, OP_NAME)
+VALUES  ('1', 'Value 1'),
+        ('2', 'Value 2'),
+        ('3', 'Value 3'),
+        ('4', 'Value 4'),
+        ('5', 'Value 5'),
+        ('6', 'Value 6'),
+        ('7', 'Value 7'),
+        ('8', 'Value 8'),
+        ('9', 'Value 9'),
+        ('0', 'Value 0'),
+        ('A', 'Value A'),
+        ('B', 'Value B'),
+        ('C', 'Value C'),
+        ('D', 'Value D'),
+        ('E', 'Value E'),
+        ('F', 'Value F'),
+        ('G', 'Value G'),
+        ('H', 'Value H'),
+        ('I', 'Value I'),
+        ('J', 'Value J');
+
+
+INSERT INTO DLANZ1.OPERATIONS (OP_CODE, OP_NAME)
+VALUES  ('!', 'Value !'),
+        ('@', 'Value @'),
+        ('#', 'Value #'),
+        ('$', 'Value $'),
+        ('%', 'Value %'),
+        ('^', 'Value ^'),
+        ('&', 'Value &'),
+        ('(', 'Value ('),
+        (')', 'Value )'),
+        ('_', 'Value _'),
+        ('=', 'Value ='),
+        ('a', 'Value a'),
+        ('b', 'Value b'),
+        ('c', 'Value c'),
+        ('d', 'Value d'),
+        ('e', 'Value e'),
+        ('f', 'Value f'),
+        ('g', 'Value g'),
+        ('h', 'Value h'),
+        ('i', 'Value i'),
+        ('j', 'Value j');

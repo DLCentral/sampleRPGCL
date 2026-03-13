@@ -1,0 +1,54 @@
+     A*%%EC
+     A                                      DSPSIZ(24 80 *DS3                  -
+     A                                             27 132 *DS4)
+     A                                      INDARA
+     A                                      CF03(03 'Exit')
+     A                                      CF04(04 'Search')
+     A                                      CF05(05 'Refresh')
+     A                                      CF12(12 'Previous')
+     A*************************************************************************
+     A*         S1FMT                                                     *****
+     A*************************************************************************
+     A          R S1FMT
+     A                                      RTNCSRLOC(&CSRREC &CSRFLD)
+     A                                      CSRLOC(CSRROW       CSRCOL)
+     A            CSRREC        10A  H
+     A            CSRFLD        10A  H
+     A            CSRCOL         3S 0H
+     A            CSRROW         3S 0H
+     A            NUM1RI         1A  P
+     A            OPERRI         1A  P
+     A            NUM2RI         1A  P
+     A            RESULTRI       1A  P
+     A*
+     A            $PGMNAME      10A  O  1  2COLOR(BLU)
+     A            $CMPNAME      30A  O  1 26COLOR(YLW)
+     A                                  1 73DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(BLU)
+     A                                  2  2USER
+     A                                      COLOR(BLU)
+     A            $PGMDESC      30A  O  2 32COLOR(WHT)
+     A                                  2 73TIME
+     A                                      COLOR(BLU)
+     A                                  3 34'Calculator 1'
+     A                                      DSPATR(UL)
+     A                                 23  2'Enter to continue'
+     A                                      COLOR(BLU)
+     A                                 23 24'F3 = Exit'
+     A                                      COLOR(BLU)
+     A                                 23 59'F12 = Return'
+     A                                      COLOR(BLU)
+     A            S1ERROR       69A  O 24  1COLOR(RED)
+     A                                  5  4'Number #1........................:'
+     A            S1NUM1         5Y 0B  5 39DSPATR(&NUM1RI)
+     A                                      EDTCDE(Z)
+     A                                  6  4'Operation........................:'
+     A            S1OPER         1A  B  6 39DSPATR(&OPERRI)
+     A  60                                  ERRMSG('Invalid Option')
+     A                                  7  4'Number #2........................:'
+     A            S1NUM2         5Y 0B  7 39DSPATR(&NUM2RI)
+     A                                      EDTCDE(Z)
+     A                                  8  4'Result...........................:'
+     A            S1RESULT       5Y 0O  8 39DSPATR(&RESULTRI)
+     A                                      EDTCDE(Z)

@@ -1,0 +1,21 @@
+**free
+/if defined(addNum_pr)
+  Dcl-Pr addNum packed(5:0);
+/endif
+
+/if defined(addNum_pi)
+  Dcl-Pi addNum packed(5:0);
+/endif
+
+  pValue1 packed(5:0);
+  pValue2 packed(5:0);
+
+/if defined(addNum_pr)    
+  End-Pr;
+  /undefine addNum_pr
+/endif
+
+/if defined(addNum_pi)    
+  End-Pi;
+  /undefine addNum_pi
+/endif

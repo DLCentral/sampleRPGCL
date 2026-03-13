@@ -1,0 +1,93 @@
+     A*%%EC
+     A                                      DSPSIZ(24 80 *DS3                  -
+     A                                             27 132 *DS4)
+     A                                      INDARA
+     A                                      CF03(03 'Exit')
+     A                                      CF04(04 'Search')
+     A                                      CF05(05 'Refresh')
+     A                                      CF12(12 'Previous')
+     A*************************************************************************
+     A*         S1WIN (Window)                                            *****
+     A*************************************************************************
+     A          R S1WIN
+     A                                      WINDOW(*DFT 22 64)
+     A                                      WDWBORDER((*COLOR RED) (*DSPATR RI)-
+     A                                       (*CHAR '        '))
+     A                                      WDWTITLE((*TEXT &$PGMDESC) *CENTER)
+     A                                      OVERLAY
+     A            $PGMDESC      40   P
+     A
+     A*************************************************************************
+     A*         S1FOOT (Footer)                                            *****
+     A*************************************************************************
+     A*
+     A          R S1FOOT
+     A                                      WINDOW(S1WIN)
+     A                                      OVERLAY
+     A                                 21  2'Enter to continue'
+     A                                      COLOR(BLU)
+     A                                 21 24'F3 = Exit'
+     A                                      COLOR(BLU)
+     A                                 21 35'F12 = Return'
+     A                                      COLOR(BLU)
+     A*
+     A*************************************************************************
+     A*         S1SFL (Subfile)                                           *****
+     A*************************************************************************
+     A*
+     A          R S1SFL                     SFL
+     A*
+     A            S1OPT          1A  B  7  2DSPATR(UL)
+     A                                      COLOR(TRQ)
+     A  60                                  DSPATR(PR)
+     A            S1OPCODE       1A  O  7  4COLOR(WHT)
+     A            S1OPDESC      20A  O  7 30COLOR(WHT)
+     
+     A*************************************************************************
+     A*         S1CTL (Subfile Control)                                   *****
+     A*************************************************************************
+     A*
+     A*
+     A          R S1CTL                     SFLCTL(S1SFL)
+     A                                      SFLSIZ(0013)
+     A                                      SFLPAG(0012)
+     A                                      WINDOW(S1WIN)
+     A                                      PAGEDOWN(25)
+     A                                      PAGEUP(26)
+     A                                      RTNCSRLOC(&CSRREC &CSRFLD &CSRPOS)
+     A                                      OVERLAY
+     A                                      SFLCSRRRN(&S1CRRN)
+     A N50 51                               SFLDSP
+     A N50                                  SFLDSPCTL
+     A  50                                  SFLCLR
+     A  40                                  SFLEND(*MORE)
+     A  91                                  SFLMSG('No records found')
+     A  60                                  SFLMSG('Invalid Option')
+     A            S1TOPRCRD      4S 0H      SFLRCDNBR(CURSOR)
+     A            S1SCROLL       5S 0H      SFLSCROLL
+     A*
+     A            S1CRRN         5S 0H
+     A            CSRREC        10A  H
+     A            CSRFLD        10A  H
+     A            CSRPOS         4S 0H
+     A*
+     A            $PGMNAME      10A  O  1  2COLOR(BLU)
+     A                                  2  2USER
+     A                                      COLOR(BLU)
+     A            $PGMDESC      40A  O  1 14COLOR(WHT)
+     A                                  1 56DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(BLU)
+     A                                  2 56TIME
+     A                                      COLOR(BLU)
+     A                                  5  4'Operation Symbol'
+     A                                      COLOR(WHT)
+     A                                      DSPATR(UL)
+     A                                  5 30'Operation Description'
+     A                                      COLOR(WHT)
+     A                                      DSPATR(UL)
+     A            P1OPCODE       1A  B  6  4COLOR(TRQ)
+     A            P1OPDESC      20A  B  6 30COLOR(TRQ)
+     A                                      CHECK(LC)
+     A                                  3 20'Operation Selection'
+     A                                      DSPATR(UL)

@@ -1,0 +1,21 @@
+**free
+/if defined(subnum_pr)
+  Dcl-Pr subnum packed(5:0);
+/endif
+
+/if defined(subnum_pi)
+  Dcl-Pi subnum packed(5:0);
+/endif
+
+  pValue1 packed(5:0);
+  pValue2 packed(5:0);
+
+/if defined(subnum_pr)    
+  End-Pr;
+  /undefine subnum_pr
+/endif
+
+/if defined(subnum_pi)    
+  End-Pi;
+  /undefine subnum_pi
+/endif

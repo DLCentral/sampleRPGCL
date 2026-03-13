@@ -1,0 +1,21 @@
+**free
+/if defined(multNum_pr)
+  Dcl-Pr multNum packed(5:0);
+/endif
+
+/if defined(multNum_pi)
+  Dcl-Pi multNum packed(5:0);
+/endif
+
+  pValue1 packed(5:0);
+  pValue2 packed(5:0);
+
+/if defined(multNum_pr)    
+  End-Pr;
+  /undefine multNum_pr
+/endif
+
+/if defined(multNum_pi)    
+  End-Pi;
+  /undefine multNum_pi
+/endif

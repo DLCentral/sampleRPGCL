@@ -1,0 +1,21 @@
+**free
+/if defined(divNum_pr)
+  Dcl-Pr divNum packed(5:0);
+/endif
+
+/if defined(divNum_pi)
+  Dcl-Pi divNum packed(5:0);
+/endif
+
+  pValue1 packed(5:0);
+  pValue2 packed(5:0);
+
+/if defined(divNum_pr)    
+  End-Pr;
+  /undefine divNum_pr
+/endif
+
+/if defined(divNum_pi)    
+  End-Pi;
+  /undefine divNum_pi
+/endif
